@@ -1,0 +1,8 @@
+.git/
+.venv/
+.venv-wsl/
+.cache/
+**/__pycache__/
+**/*.pyc
+data/
+artifacts/

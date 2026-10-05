@@ -1,0 +1,7 @@
+services:
+  training:
+    build: .
+    image: btc-prophet-training:local
+    volumes:
+      - ./data:/app/data
+      - ./artifacts:/app/artifacts
