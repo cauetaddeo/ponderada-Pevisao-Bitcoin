@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previsão do Bitcoin</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="heading">
+      <span class="coin" aria-hidden="true">₿</span>
+      <div>
+        <p class="eyebrow">BTC-USD · PROPHET</p>
+        <h1>Previsão do Bitcoin</h1>
+      </div>
+    </header>
+    <p class="intro">Consulte uma estimativa do fechamento diário do Bitcoin em dólares.</p>
+
+    <section class="card" aria-labelledby="form-title">
+      <div class="card-heading">
+        <h2 id="form-title">Escolha uma data</h2>
+        <span id="status" class="status" role="status">Conectando…</span>
+      </div>
+      <p id="history" class="muted">Consultando o histórico do modelo.</p>
+      <form id="prediction-form">
+        <label for="date">Data do fechamento (UTC)</label>
+        <div class="form-row">
+          <input id="date" name="date" type="date" required disabled aria-describedby="range">
+          <button id="predict-button" type="submit" disabled>Consultar previsão</button>
+        </div>
+        <p id="range" class="hint"></p>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+      <button id="retry-button" class="secondary" type="button" hidden>Tentar conexão novamente</button>
+    </section>
+
+    <section id="result" class="card result" aria-labelledby="result-title" aria-live="polite" hidden>
+      <p class="eyebrow">FECHAMENTO ESTIMADO · USD</p>
+      <h2 id="result-title">Previsão</h2>
+      <p id="predicted-close" class="price"></p>
+      <p id="interval-label" class="muted"></p>
+      <dl class="bounds">
+        <div><dt>Limite inferior</dt><dd id="lower-bound"></dd></div>
+        <div><dt>Limite superior</dt><dd id="upper-bound"></dd></div>
+      </dl>
+    </section>
+
+    <footer>
+      <p>Estimativa experimental baseada no histórico de preços. Notícias e outros fatores do mercado não entram no modelo.</p>
+      <a href="/docs">Documentação da API</a>
+    </footer>
+  </main>
+</body>
+</html>
